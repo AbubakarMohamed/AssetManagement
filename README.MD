@@ -31,7 +31,7 @@ A Django-based application to manage asset lending, tracking, and maintenance. T
 1. **Clone the repository**:
 
     ```bash
-    git clone https://github.com/AbubakarMohamed/asset-management-system.git
+    git clone https://github.com/AbubakarMohamed/AssetManagement.git
     cd asset-management-system
     ```
 
