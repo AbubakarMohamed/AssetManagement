@@ -1,130 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Maintenance</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background: #f4f4f4;
-        }
-        .navbar {
-            background-color: #0056b3;
-            display: flex;
-            justify-content: space-around; /* Space out links evenly */
-            align-items: center;
-            padding: 15px 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-        }
-        .navbar a {
-            color: white;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: bold;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        .navbar a:hover {
-            background-color: #003d7a;
-            color: #e0e0e0;
-        }
-        .container {
-            padding: 80px 20px; /* Added padding to account for fixed navbar */
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        h1, h2 {
-            color: #333;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            background: #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        table th, table td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: left;
-        }
-        table th {
-            background-color: #0056b3;
-            color: white;
-        }
-        table tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        table tr:hover {
-            background-color: #f1f1f1;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 15px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background: #f4f4f4;
+      }
+      .navbar {
+        background-color: #62acfc;
+        display: flex;
+        justify-content: space-around; /* Space out links evenly */
+        align-items: center;
+        padding: 15px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+      }
+      .navbar a {
+        color: white;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .navbar a:hover {
+        background-color: #003d7a;
+        color: #e0e0e0;
+      }
+      .container {
+        padding: 80px 20px; /* Added padding to account for fixed navbar */
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      h1,
+      h2 {
+        color: #333;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      table th,
+      table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      table th {
+        background-color: #0056b3;
+        color: white;
+      }
+      table tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      table tr:hover {
+        background-color: #f1f1f1;
+      }
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 15px 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
     </style>
-</head>
-<body>
-    < <div class="navbar">
-        <a href="{% url 'index' %}">Home</a>
-        <a href="{% url 'home' %}">Asset</a>
-        <a href="{% url 'track' %}">Track Assets</a>
-        <a href="{% url 'maintenance' %}">Assets Maintenance</a>
-        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+  </head>
+  <body>
+    {% load static %}
+    <div class="navbar">
+      <a href="{% url 'index' %}"
+        ><img src="{% static 'images/logo.png' %}" alt="Site Logo" height="30"
+      /></a>
+      <a href="{% url 'home' %}">Asset</a>
+      <a href="{% url 'track' %}">Track Assets</a>
+      <a href="{% url 'maintenance' %}">Assets Maintenance</a>
+      <a class="nav-link" href="{% url 'logout' %}">Logout</a>
     </div>
 
     <div class="container">
-        <h1>Maintenance</h1>
-        
-        <h2>Pending Maintenance</h2>
-        {% if maintenance_records %}
-        <table>
-            <tr>
-                <th>Asset</th>
-                <th>Quantity</th>
-                <th>Date</th>
-                <th>Status</th>
-                <th>Action</th>
-            </tr>
-            {% for maintenance in maintenance_records %}
-            <tr>
-                <td>{{ maintenance.asset.name }}</td>
-                <td>{{ maintenance.quantity }}</td>
-                <td>{{ maintenance.maintenance_date }}</td>
-                <td>
-                    {% if maintenance.is_fixed %}
-                        Fixed
-                    {% else %}
-                        Pending
-                    {% endif %}
-                </td>
-                <td><a href="{% url 'fix_asset' maintenance.id %}">Fix</a></td>
-            </tr>
-            {% endfor %}
-        </table>
-        {% else %}
-        <p>No pending maintenance records.</p>
-        {% endif %}
+      <h1>Maintenance</h1>
+
+      <h2>Pending Maintenance</h2>
+      {% if maintenance_records %}
+      <table>
+        <tr>
+          <th>Asset</th>
+          <th>Quantity</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+        {% for maintenance in maintenance_records %}
+        <tr>
+          <td>{{ maintenance.asset.name }}</td>
+          <td>{{ maintenance.quantity }}</td>
+          <td>{{ maintenance.maintenance_date }}</td>
+          <td>
+            {% if maintenance.is_fixed %} Fixed {% else %} Pending {% endif %}
+          </td>
+          <td><a href="{% url 'fix_asset' maintenance.id %}">Fix</a></td>
+        </tr>
+        {% endfor %}
+      </table>
+      {% else %}
+      <p>No pending maintenance records.</p>
+      {% endif %}
     </div>
 
     <footer>
-        <p>&copy; 2024 Swahilipot Hub. All rights reserved.</p>
+      <p>&copy; 2024 Swahilipot Hub. All rights reserved.</p>
     </footer>
-</body>
+  </body>
 </html>

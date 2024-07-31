@@ -1,172 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Return Asset</title>
     <style>
-        /* Reset CSS */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .navbar {
-            background-color: #0056b3;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 15px 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-        }
-        .navbar a {
-            color: white;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: bold;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        .navbar a:hover {
-            background-color: #003d7a;
-            color: #e0e0e0;
-        }
-        .container {
-            width: 100%;
-            max-width: 600px;
-            background-color: #fff;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #333;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        label {
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-        input[type="text"], input[type="number"], select {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        select {
-            appearance: none;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8"><path d="M4 5L0 0h8z"/></svg>');
-            background-repeat: no-repeat;
-            background-position-x: calc(100% - 12px);
-            background-position-y: center;
-            padding-right: 24px;
-        }
-        button[type="submit"] {
-            background-color: #0056b3;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
-        button[type="submit"]:hover {
-            background-color: #003d7a;
-        }
-        .error-message {
-            color: #d32f2f;
-            font-size: 14px;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 15px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
+      /* Reset CSS */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .navbar {
+        background-color: #62acfc;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 15px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+      }
+      .navbar a {
+        color: white;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .navbar a:hover {
+        background-color: #003d7a;
+        color: #e0e0e0;
+      }
+      .container {
+        width: 100%;
+        max-width: 600px;
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        color: #333;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+      .form-group {
+        margin-bottom: 20px;
+      }
+      label {
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+      input[type="text"],
+      input[type="number"],
+      select {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      select {
+        appearance: none;
+        background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8"><path d="M4 5L0 0h8z"/></svg>');
+        background-repeat: no-repeat;
+        background-position-x: calc(100% - 12px);
+        background-position-y: center;
+        padding-right: 24px;
+      }
+      button[type="submit"] {
+        background-color: #0056b3;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+      }
+      button[type="submit"]:hover {
+        background-color: #003d7a;
+      }
+      .error-message {
+        color: #d32f2f;
+        font-size: 14px;
+      }
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 15px 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    {% load static %}
     <div class="navbar">
-        <a href="{% url 'index' %}">Home</a>
-        <a href="{% url 'home' %}">Asset</a>
-        <a href="{% url 'track' %}">Track Assets</a>
-        <a href="{% url 'maintenance' %}">Assets Maintenance</a>
-        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+      <a href="{% url 'index' %}"
+        ><img src="{% static 'images/logo.png' %}" alt="Site Logo" height="30"
+      /></a>
+      <a href="{% url 'home' %}">Asset</a>
+      <a href="{% url 'track' %}">Track Assets</a>
+      <a href="{% url 'maintenance' %}">Assets Maintenance</a>
+      <a class="nav-link" href="{% url 'logout' %}">Logout</a>
     </div>
 
     <div class="container">
-        <h1>Return Asset</h1>
-        <form method="post">
-            {% csrf_token %}
-            <div class="form-group">
-                <label for="id_lend">Lend:</label>
-                {{ form.lend }}
-            </div>
-            <div class="form-group">
-                <label for="id_returned_date">Returned Date:</label>
-                {{ form.returned_date }}
-            </div>
-            <div class="form-group">
-                <label for="id_condition">Condition:</label>
-                {{ form.condition }}
-            </div>
-            <div class="form-group">
-                <label for="id_quantity_good">Quantity in Good Condition:</label>
-                {{ form.quantity_good }}
-            </div>
-            <div class="form-group">
-                <label for="id_quantity_bad">Quantity in Bad Condition:</label>
-                {{ form.quantity_bad }}
-            </div>
-            <button type="submit">Return</button>
-        </form>
+      <h1>Return Asset</h1>
+      <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="id_lend">Lend:</label>
+          {{ form.lend }}
+        </div>
+        <div class="form-group">
+          <label for="id_returned_date">Returned Date:</label>
+          {{ form.returned_date }}
+        </div>
+        <div class="form-group">
+          <label for="id_condition">Condition:</label>
+          {{ form.condition }}
+        </div>
+        <div class="form-group">
+          <label for="id_quantity_good">Quantity in Good Condition:</label>
+          {{ form.quantity_good }}
+        </div>
+        <div class="form-group">
+          <label for="id_quantity_bad">Quantity in Bad Condition:</label>
+          {{ form.quantity_bad }}
+        </div>
+        <button type="submit">Return</button>
+      </form>
     </div>
 
     <footer>
-        <p>&copy; 2024 Swahilipot Hub. All rights reserved.</p>
+      <p>&copy; 2024 Swahilipot Hub. All rights reserved.</p>
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const quantityGoodInput = document.querySelector('input[name="quantity_good"]');
-            const quantityBadInput = document.querySelector('input[name="quantity_bad"]');
-            const totalQuantity = parseInt('{{ total_quantity }}', 10);
+      document.addEventListener("DOMContentLoaded", function () {
+        const quantityGoodInput = document.querySelector(
+          'input[name="quantity_good"]'
+        );
+        const quantityBadInput = document.querySelector(
+          'input[name="quantity_bad"]'
+        );
+        const totalQuantity = parseInt("{{ total_quantity }}", 10);
 
-            quantityGoodInput.addEventListener('input', function () {
-                const quantityGood = parseInt(quantityGoodInput.value, 10) || 0;
-                const quantityBad = totalQuantity - quantityGood;
-                quantityBadInput.value = quantityBad >= 0 ? quantityBad : 0;
-            });
+        quantityGoodInput.addEventListener("input", function () {
+          const quantityGood = parseInt(quantityGoodInput.value, 10) || 0;
+          const quantityBad = totalQuantity - quantityGood;
+          quantityBadInput.value = quantityBad >= 0 ? quantityBad : 0;
         });
+      });
     </script>
-</body>
+  </body>
 </html>

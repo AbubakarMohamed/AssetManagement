@@ -1,151 +1,157 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Track Assets</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background: #f4f4f4;
-            color: #333;
-        }
-        .navbar {
-            background-color: #0056b3;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 10px 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-        }
-        .navbar a {
-            color: white;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: bold;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        .navbar a:hover {
-            background-color: #003d7a;
-            color: #e0e0e0;
-        }
-        .container {
-            padding: 150px 20px 80px; /* Increased bottom padding */
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: left;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            position: relative; /* Ensure footer does not overlap */
-        }
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #333;
-            text-align: center;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        form .form-group {
-            margin-bottom: 15px;
-        }
-        form label {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        form input, form select, form textarea {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            width: 100%;
-            box-sizing: border-box;
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-        form .btn-primary {
-            align-self: flex-start;
-            background-color: #007bff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-            font-size: 16px;
-            color: white;
-            cursor: pointer;
-        }
-        form .btn-primary:hover {
-            background-color: #0056b3;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 15px 0;
-            width: 100%;
-            position: relative;
-            bottom: 0;
-            margin-top: 20px; /* Add margin to create space above the footer */
-        }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background: #f4f4f4;
+        color: #333;
+      }
+      .navbar {
+        background-color: #62acfc;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+      }
+      .navbar a {
+        color: white;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .navbar a:hover {
+        background-color: #003d7a;
+        color: #e0e0e0;
+      }
+      .container {
+        padding: 1rem; /* Increased bottom padding */
+        max-width: 800px;
+        margin: 7rem auto;
+        text-align: left;
+        background-color: rgb(237, 246, 255);
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        position: relative; /* Ensure footer does not overlap */
+      }
+      h1 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        color: #333;
+        text-align: center;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+      form .form-group {
+        margin-bottom: 15px;
+      }
+      form label {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      form input,
+      form select,
+      form textarea {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+      form .btn-primary {
+        align-self: flex-start;
+        background-color: #007bff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+        font-size: 16px;
+        color: white;
+        cursor: pointer;
+      }
+      form .btn-primary:hover {
+        background-color: #0056b3;
+      }
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 15px 0;
+        width: 100%;
+        position: relative;
+        bottom: 0;
+        margin-top: 20px; /* Add margin to create space above the footer */
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    {% load static %}
     <div class="navbar">
-        <a href="{% url 'index' %}">Home</a>
-        <a href="{% url 'home' %}">Asset</a>
-        <a href="{% url 'track' %}">Track Assets</a>
-        <a href="{% url 'maintenance' %}">Assets Maintenance</a>
-        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+      <a href="{% url 'index' %}"
+        ><img src="{% static 'images/logo.png' %}" alt="Site Logo" height="30"
+      /></a>
+      <a href="{% url 'home' %}">Asset</a>
+      <a href="{% url 'track' %}">Track Assets</a>
+      <a href="{% url 'maintenance' %}">Assets Maintenance</a>
+      <a class="nav-link" href="{% url 'logout' %}">Logout</a>
     </div>
 
     <div class="container">
-        <h1>Track Assets</h1>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Lend Asset</button>
-        </form>
+      <h1>Track Assets</h1>
+      <form method="post">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Lend Asset</button>
+      </form>
     </div>
 
     <footer>
-        <p>&copy; 2024 Swahilipot Hub. All rights reserved.</p>
+      <p>&copy; 2024 Swahilipot Hub. All rights reserved.</p>
     </footer>
 
     <script>
-        $(document).ready(function() {
-            $('#id_asset').change(function() {
-                var assetId = $(this).val();
-                $.ajax({
-                    url: "{% url 'get_asset_ids' %}",
-                    data: {
-                        'asset_id': assetId
-                    },
-                    success: function(data) {
-                        var idField = $('#id_id');
-                        idField.empty();
-                        $.each(data.ids, function(index, value) {
-                            idField.append($('<option>', {
-                                value: value.id,
-                                text: value.unique_id
-                            }));
-                        });
-                    }
-                });
-            });
+      $(document).ready(function () {
+        $("#id_asset").change(function () {
+          var assetId = $(this).val();
+          $.ajax({
+            url: "{% url 'get_asset_ids' %}",
+            data: {
+              asset_id: assetId,
+            },
+            success: function (data) {
+              var idField = $("#id_id");
+              idField.empty();
+              $.each(data.ids, function (index, value) {
+                idField.append(
+                  $("<option>", {
+                    value: value.id,
+                    text: value.unique_id,
+                  })
+                );
+              });
+            },
+          });
         });
+      });
     </script>
-</body>
+  </body>
 </html>

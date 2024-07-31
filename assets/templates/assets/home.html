@@ -1,239 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Asset Management Dashboard</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background: #f4f4f4;
-            padding-bottom: 60px; /* Ensure space for footer */
-        }
-        .navbar {
-            background-color: #0056b3;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 15px 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-        }
-        .navbar a {
-            color: white;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: bold;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        .navbar a:hover {
-            background-color: #003d7a;
-            color: #e0e0e0;
-        }
-        .container {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        h1, h2 {
-            color: #333;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        table th, table td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-        table th {
-            background-color: #0056b3;
-            color: white;
-        }
-        table tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        table tr:hover {
-            background-color: #f1f1f1;
-        }
-        .form-container {
-            margin-top: 20px;
-            text-align: center;
-        }
-        .hidden {
-            display: none;
-        }
-        .form-container button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 6px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            margin: 5px;
-        }
-        .form-container button:hover {
-            background-color: #0056b3;
-            transform: translateY(-2px);
-        }
-        .submit-button {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 6px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            margin: 5px;
-        }
-        .submit-button:hover {
-            background-color: #218838;
-            transform: translateY(-2px);
-        }
-        .form-container form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .form-container input,
-        .form-container select,
-        .form-container textarea {
-            width: 100%;
-            max-width: 400px;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 16px;
-        }
-        .form-container input[type="number"] {
-            appearance: textfield; /* Hide spinner in Firefox */
-        }
-        .form-container input[type="number"]::-webkit-inner-spin-button,
-        .form-container input[type="number"]::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-        .errorlist {
-            color: red;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            font-size: 14px;
-            text-align: left;
-        }
-        .errorlist li {
-            margin-bottom: 10px;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 15px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background: #f4f4f4;
+        padding-bottom: 60px; /* Ensure space for footer */
+      }
+      .navbar {
+        background-color: #62acfc;
+        display: flex;
+        justify-content: space-between;
+        align-items: right;
+        padding: 15px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+      }
+      .navbar a {
+        color: white;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .navbar a:hover {
+        background-color: #003d7a;
+        color: #e0e0e0;
+      }
+      .container {
+        padding: 80px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      h1,
+      h2 {
+        color: #333;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      table th,
+      table td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
+      table th {
+        background-color: #62acfc;
+        color: white;
+      }
+      table tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      table tr:hover {
+        background-color: #f1f1f1;
+      }
+      .form-container {
+        margin-top: 20px;
+        text-align: center;
+      }
+      .hidden {
+        display: none;
+      }
+      .form-container button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 6px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        margin: 5px;
+      }
+      .form-container button:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px);
+      }
+      .submit-button {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 6px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        margin: 5px;
+      }
+      .submit-button:hover {
+        background-color: #218838;
+        transform: translateY(-2px);
+      }
+      .form-container form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .form-container input,
+      .form-container select,
+      .form-container textarea {
+        width: 100%;
+        max-width: 400px;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 16px;
+      }
+      .form-container input[type="number"] {
+        appearance: textfield; /* Hide spinner in Firefox */
+      }
+      .form-container input[type="number"]::-webkit-inner-spin-button,
+      .form-container input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      .errorlist {
+        color: red;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: 14px;
+        text-align: left;
+      }
+      .errorlist li {
+        margin-bottom: 10px;
+      }
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 15px 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    {% load static %}
+
     <div class="navbar">
-        <a href="{% url 'index' %}">Home</a>
-        <a href="{% url 'home' %}">Asset</a>
-        <a href="{% url 'track' %}">Track Assets</a>
-        <a href="{% url 'maintenance' %}">Assets Maintenance</a>
-        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+      <a href="{% url 'index' %}"
+        ><img src="{% static 'images/logo.png' %}" alt="Site Logo" height="30"
+      /></a>
+
+      <a href="{% url 'home' %}">Asset</a>
+      <a href="{% url 'track' %}">Track Assets</a>
+      <a href="{% url 'maintenance' %}">Assets Maintenance</a>
+      <a class="nav-link" href="{% url 'logout' %}">Logout</a>
     </div>
 
     <div class="container">
-        <h1>Asset Management Dashboard</h1>
-        
-        <h2>Available Assets</h2>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Asset</th>
-                <th>Total Quantity</th>
-                <th>Available Quantity</th>
-                <th>Date</th>
-            </tr>
-            {% for asset in assets %}
-            <tr>
-                <td>{{ asset.unique_id }}</td>
-                <td>{{ asset.name }}</td>
-                <td>{{ asset.total_quantity }}</td>
-                <td>{{ asset.available_quantity }}</td>
-                <td>{{ asset.arrival_date }}</td>
-            </tr>
-            {% endfor %}
-        </table>
+      <h1>Asset Management Dashboard</h1>
 
-        <div class="form-container">
-            <button onclick="toggleForm()">Add Asset</button>
-            <form id="add-asset-form" method="post" class="hidden">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit" class="submit-button">Save</button>
-            </form>
-        </div>
+      <h2>Available Assets</h2>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Asset</th>
+          <th>Total Quantity</th>
+          <th>Available Quantity</th>
+          <th>Date</th>
+        </tr>
+        {% for asset in assets %}
+        <tr>
+          <td>{{ asset.unique_id }}</td>
+          <td>{{ asset.name }}</td>
+          <td>{{ asset.total_quantity }}</td>
+          <td>{{ asset.available_quantity }}</td>
+          <td>{{ asset.arrival_date }}</td>
+        </tr>
+        {% endfor %}
+      </table>
 
-        <h2>Assets Taken</h2>
-        {% if lent_assets %}
-            <table>
-                <tr>
-                    <th>Asset</th>
-                    <th>Quantity</th>
-                    <th>Date Lent</th>
-                    <th>Person</th>
-                    <th>Org Name</th>
-                </tr>
-                {% for lend in lent_assets %}
-                <tr>
-                    <td><a href="{% url 'return_asset' lend.id %}">{{ lend.asset.name }}</a></td>
-                    <td>{{ lend.quantity }}</td>
-                    <td>{{ lend.lent_date }}</td>
-                    <td>{{ lend.person_picking }}</td>
-                    <td>{{ lend.organisation }}</td>
-                </tr>
-                {% endfor %}
-            </table>
-        {% else %}
-            <p>No assets have been taken.</p>
-        {% endif %}
+      <div class="form-container">
+        <button onclick="toggleForm()">Add Asset</button>
+        <form id="add-asset-form" method="post" class="hidden">
+          {% csrf_token %} {{ form.as_p }}
+          <button type="submit" class="submit-button">Save</button>
+        </form>
+      </div>
+
+      <h2>Assets Taken</h2>
+      {% if lent_assets %}
+      <table>
+        <tr>
+          <th>Asset</th>
+          <th>Quantity</th>
+          <th>Date Lent</th>
+          <th>Person</th>
+          <th>Org Name</th>
+        </tr>
+        {% for lend in lent_assets %}
+        <tr>
+          <td>
+            <a href="{% url 'return_asset' lend.id %}">{{ lend.asset.name }}</a>
+          </td>
+          <td>{{ lend.quantity }}</td>
+          <td>{{ lend.lent_date }}</td>
+          <td>{{ lend.person_picking }}</td>
+          <td>{{ lend.organisation }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+      {% else %}
+      <p>No assets have been taken.</p>
+      {% endif %}
     </div>
 
     <footer>
-        <p>&copy; 2024 Swahilipot Hub. All rights reserved.</p>
+      <p>&copy; 2024 Swahilipot Hub. All rights reserved.</p>
     </footer>
 
     <script>
-        function toggleForm() {
-            document.getElementById('add-asset-form').classList.toggle('hidden');
-        }
+      function toggleForm() {
+        document.getElementById("add-asset-form").classList.toggle("hidden");
+      }
     </script>
-</body>
+  </body>
 </html>
