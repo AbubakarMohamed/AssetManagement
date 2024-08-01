@@ -11,4 +11,5 @@ urlpatterns = [
     path('return/<int:lend_id>/', views.return_asset, name='return_asset'),
     path('fix/<int:maintenance_id>/', views.fix_asset, name='fix_asset'),
     path('get-asset-ids/', views.get_asset_ids, name='get_asset_ids'),
+    
 ]

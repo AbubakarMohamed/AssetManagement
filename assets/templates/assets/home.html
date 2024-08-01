@@ -197,7 +197,7 @@
             <form id="add-asset-form" method="post" class="hidden">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit" class="submit-button">Save</button>
+                <button type="submit" class="submit-button">Save</buttonz>
             </form>
         </div>
 
@@ -231,9 +231,7 @@
     </footer>
 
     <script>
-        function toggleForm() {
-            document.getElementById('add-asset-form').classList.toggle('hidden');
-        }
+       
     </script>
 </body>
 </html>
