@@ -1,146 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Swahilipot Hub - Asset Management</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background: #f4f4f4;
-            color: #333; /* Default text color */
-        }
-        .navbar {
-            background-color: #0056b3;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 10px 0;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-        }
-        .navbar a {
-            color: white;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: bold;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        .navbar a:hover {
-            background-color: #003d7a;
-            color: #e0e0e0;
-        }
-        .container {
-            padding: 150px 20px 80px; /* Adjusted padding to accommodate content */
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: left; /* Align text to the left */
-        }
-        .container h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #333;
-            text-align: center; /* Center align headings */
-        }
-        .container p {
-            font-size: 1.2em;
-            color: #555;
-            line-height: 1.6; /* Improved line spacing for readability */
-            margin-bottom: 20px;
-        }
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('path/to/your/image.jpg') no-repeat center center/cover;
-            color: white;
-            padding: 100px 20px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .hero h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-        }
-        .hero p {
-            font-size: 1.5em;
-            margin-bottom: 0;
-        }
-        .section {
-            margin-bottom: 40px; /* Added spacing between sections */
-        }
-        .section h2 {
-            font-size: 2em;
-            margin-bottom: 15px;
-            color: #0056b3; /* Highlight section headings */
-        }
-        .section ul {
-            list-style-type: disc; /* Use bullet points for lists */
-            padding-left: 20px;
-        }
-        .section ul li {
-            font-size: 1.1em;
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 15px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background: #f4f4f4;
+        color: #333;
+      }
+      .navbar {
+        background-color: #62acfc;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+      }
+      .navbar a {
+        color: white;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .navbar a:hover {
+        background-color: #003d7a;
+        color: #e0e0e0;
+      }
+      .container {
+        padding: 80px 20px 80px; /* Adjusted padding to remove excess space */
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: left;
+      }
+      .container h1 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        color: #333;
+        text-align: center;
+      }
+      .container p {
+        font-size: 1.2em;
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+      .hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url("path/to/your/image.jpg") no-repeat center center/cover;
+        color: white;
+        padding: 100px 20px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .hero h1 {
+        font-size: 3em;
+        margin-bottom: 10px;
+      }
+      .hero p {
+        font-size: 1.5em;
+        margin-bottom: 0;
+      }
+      .section {
+        margin-bottom: 40px;
+      }
+      .section h2 {
+        font-size: 2em;
+        margin-bottom: 15px;
+        color: #0056b3;
+      }
+      .section ul {
+        list-style-type: disc;
+        padding-left: 20px;
+      }
+      .section ul li {
+        font-size: 1.1em;
+        line-height: 1.6;
+        margin-bottom: 10px;
+      }
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 15px 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+
+      .dashboard-cards {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0;
+        gap: 20px;
+      }
+      .card {
+        background: #62acfc;
+        color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        flex: 1;
+        text-align: center;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+      }
+      .card h3 {
+        margin: 0;
+        font-size: 1.5em;
+        color: #e3f1ff;
+      }
+      .card p {
+        margin: 5px 0;
+        font-size: 1.2em;
+      }
+      .card span {
+        display: block;
+        margin-top: 10px;
+        font-size: 1em;
+      }
+      .card:hover {
+        transform: translateY(-10px);
+        background-color: #127ff4;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    {% load static %}
     <div class="navbar">
-        <a href="{% url 'index' %}">Home</a>
-        <a href="{% url 'home' %}">Asset</a>
-        <a href="{% url 'track' %}">Track Assets</a>
-        <a href="{% url 'maintenance' %}">Assets Maintenance</a>
-        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-        
+      <a href="{% url 'index' %}"
+        ><img src="{% static 'images/logo.png' %}" alt="Site Logo" height="30"
+      /></a>
+      <a href="{% url 'home' %}">Asset</a>
+      <a href="{% url 'track' %}">Track Assets</a>
+      <a href="{% url 'maintenance' %}">Assets Maintenance</a>
+      <a class="nav-link" href="{% url 'logout' %}">Logout</a>
     </div>
 
     <div class="hero">
-        <h1>Swahilipot Hub Assets management systems </h1>
-        <p>Manage and track your assets efficiently with our comprehensive system.</p>
+      <h1>Swahilipot Hub Assets Management Systems</h1>
+      <p>
+        Manage and track your assets efficiently with our comprehensive system.
+      </p>
     </div>
 
     <div class="container">
-        <div class="section">
-            <h2>How Asset Lending Works</h2>
-            <p>Asset lending at Swahilipot Hub allows individuals or departments to borrow assets for specific purposes. Here's how it works:</p>
-            <ul>
-                <li>Fill out the lending form specifying the asset and quantity needed.</li>
-                <li>The request will be reviewed and approved based on availability and usage policies.</li>
-                <li>Once approved, the asset is allocated for the specified period.</li>
-                <li>After use, return the asset in good condition to avoid penalties.</li>
-            </ul>
+      <!-- Dashboard Cards Section -->
+      <div class="dashboard-cards">
+        <div class="card">
+          <h3>Total Assets</h3>
+          <p class="count" data-target="1310">0</p>
+          <span>98%</span>
         </div>
+        <div class="card">
+          <h3>Total Assets Borrowed</h3>
+          <p class="count" data-target="20">0</p>
+          <span>26%</span>
+        </div>
+        <div class="card">
+          <h3>Assets Under Maintenance</h3>
+          <p class="count" data-target="30">0</p>
+          <span>55%</span>
+        </div>
+        <div class="card">
+          <h3>New Assets</h3>
+          <p class="count" data-target="8200">0</p>
+          <span>89%</span>
+        </div>
+      </div>
 
-        <div class="section">
-            <h2>Lending Conditions</h2>
-            <p>Before borrowing assets, please consider the following conditions:</p>
-            <ul>
-                <li>Assets can only be borrowed for official purposes approved by management.</li>
-                <li>Ensure proper care and handling of borrowed assets to avoid damage.</li>
-                <li>Return assets on or before the specified return date to maintain availability for others.</li>
-                <li>Report any issues or damages promptly to avoid penalties.</li>
-            </ul>
-        </div>
+      <div class="section">
+        <h2>How Asset Lending Works</h2>
+        <p>
+          Asset lending at Swahilipot Hub allows individuals or departments to
+          borrow assets for specific purposes. Here's how it works:
+        </p>
+        <ul>
+          <li>
+            Fill out the lending form specifying the asset and quantity needed.
+          </li>
+          <li>
+            The request will be reviewed and approved based on availability and
+            usage policies.
+          </li>
+          <li>
+            Once approved, the asset is allocated for the specified period.
+          </li>
+          <li>
+            After use, return the asset in good condition to avoid penalties.
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Lending Conditions</h2>
+        <p>
+          Before borrowing assets, please consider the following conditions:
+        </p>
+        <ul>
+          <li>
+            Assets can only be borrowed for official purposes approved by
+            management.
+          </li>
+          <li>
+            Ensure proper care and handling of borrowed assets to avoid damage.
+          </li>
+          <li>
+            Return assets on or before the specified return date to maintain
+            availability for others.
+          </li>
+          <li>Report any issues or damages promptly to avoid penalties.</li>
+        </ul>
+      </div>
     </div>
 
     <footer>
-        <p>&copy; 2024 Swahilipot Hub. All rights reserved.</p>
+      <p>&copy; 2024 Swahilipot Hub. All rights reserved.</p>
     </footer>
-</body>
+
+    <script>
+      // Counting animation script
+      document.addEventListener("DOMContentLoaded", function () {
+        const counters = document.querySelectorAll(".count");
+        const speed = 200; // The lower the slower
+
+        counters.forEach((counter) => {
+          const animate = () => {
+            const target = +counter.getAttribute("data-target");
+            const count = +counter.innerText;
+
+            const increment = target / speed;
+
+            if (count < target) {
+              counter.innerText = Math.ceil(count + increment);
+              setTimeout(animate, 1);
+            } else {
+              counter.innerText = target;
+            }
+          };
+
+          animate();
+        });
+      });
+    </script>
+  </body>
 </html>

@@ -41,7 +41,8 @@ A Django-based application to manage asset lending, tracking, and maintenance. T
     python -m venv venv
     source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
     ```
-
+python manage.py 
+makemigrations
 
 3. **Apply migrations**:
 
