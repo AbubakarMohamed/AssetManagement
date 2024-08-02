@@ -80,6 +80,33 @@
             bottom: 0;
             width: 100%;
         }
+        @media (max-width: 768px) {
+            .navbar a {
+                font-size: 14px;
+                padding: 10px;
+            }
+            .container {
+                padding: 70px 10px; /* Adjust padding for smaller screens */
+                max-width: 100%;
+            }
+            button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+        @media (max-width: 480px) {
+            .navbar a {
+                font-size: 12px;
+                padding: 8px;
+            }
+            .container {
+                padding: 60px 10px; /* Adjust padding for smallest screens */
+            }
+            button {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
     </style>
 </head>
 <body>

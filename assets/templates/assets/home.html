@@ -17,8 +17,8 @@
         background-color: #62acfc;
         display: flex;
         justify-content: space-between;
-        align-items: right;
-        padding: 15px 0;
+        align-items: center;
+        padding: 15px 20px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         width: 100%;
         position: fixed;
@@ -160,16 +160,55 @@
         bottom: 0;
         width: 100%;
       }
+      @media (max-width: 768px) {
+        .navbar a {
+          font-size: 14px;
+          padding: 10px;
+        }
+        table th,
+        table td {
+          font-size: 14px;
+          padding: 10px;
+        }
+        .form-container input,
+        .form-container select,
+        .form-container textarea {
+          max-width: 100%;
+        }
+        .container {
+          padding: 70px 10px;
+        }
+      }
+      @media (max-width: 480px) {
+        .navbar a {
+          font-size: 12px;
+          padding: 8px;
+        }
+        table th,
+        table td {
+          font-size: 12px;
+          padding: 8px;
+        }
+        .form-container button,
+        .submit-button {
+          font-size: 14px;
+          padding: 10px 20px;
+        }
+        .form-container input,
+        .form-container select,
+        .form-container textarea {
+          font-size: 14px;
+        }
+      }
     </style>
   </head>
   <body>
     {% load static %}
 
     <div class="navbar">
-      <a href="{% url 'index' %}"
-        ><img src="{% static 'images/logo.png' %}" alt="Site Logo" height="30"
-      /></a>
-
+      <a href="{% url 'index' %}">
+        <img src="{% static 'images/logo.png' %}" alt="Site Logo" height="30" />
+      </a>
       <a href="{% url 'home' %}">Asset</a>
       <a href="{% url 'track' %}">Track Assets</a>
       <a href="{% url 'maintenance' %}">Assets Maintenance</a>

@@ -11,13 +11,14 @@
         padding: 0;
         box-sizing: border-box;
         background: #f4f4f4;
+        color: #333;
       }
       .navbar {
         background-color: #62acfc;
         display: flex;
-        justify-content: space-around; /* Space out links evenly */
+        justify-content: space-around;
         align-items: center;
-        padding: 15px 0;
+        padding: 10px 0;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         width: 100%;
         position: fixed;
@@ -79,6 +80,39 @@
         position: fixed;
         bottom: 0;
         width: 100%;
+      }
+
+      @media (max-width: 768px) {
+        .navbar a {
+          font-size: 14px;
+          padding: 10px;
+        }
+        .container {
+          padding: 70px 10px; /* Adjust padding for smaller screens */
+          max-width: 100%;
+        }
+        table th,
+        table td {
+          padding: 6px;
+          font-size: 14px;
+        }
+      }
+      @media (max-width: 480px) {
+        .navbar a {
+          font-size: 12px;
+          padding: 8px;
+        }
+        .container {
+          padding: 60px 10px; /* Adjust padding for smallest screens */
+        }
+        table th,
+        table td {
+          padding: 4px;
+          font-size: 12px;
+        }
+        table {
+          font-size: 12px;
+        }
       }
     </style>
   </head>
