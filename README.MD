@@ -32,7 +32,7 @@ A Django-based application to manage asset lending, tracking, and maintenance. T
 
     ```bash
     git clone https://github.com/AbubakarMohamed/AssetManagement.git
-    cd asset-management-system
+    cd AssetManagement
     ```
 
 2. **Create and activate a virtual environment**:
